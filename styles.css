@@ -3,6 +3,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 95vh;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .container {
@@ -11,4 +13,13 @@ body {
     border: black solid 1px;
     display: flex;
     flex-wrap: wrap;
+}
+
+.userInput {
+    display: flex;
+    gap: 20px;
+}
+
+input {
+    width: 30px;
 }
