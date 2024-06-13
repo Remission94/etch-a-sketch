@@ -1,16 +1,21 @@
 const container = document.querySelector(".container");
+let gridElements 
 
 
-for (let i = 0; i < 16; i++) {
+function defautGrid () {
     for (let i = 0; i < 16; i++) {
-        const div = document.createElement("div");
-        div.classList.add("gridElement")
-        div.setAttribute("style", "height: 48px; width: 48px; border: black solid 1px");
-        container.appendChild(div)
+        for (let i = 0; i < 16; i++) {
+            const div = document.createElement("div");
+         div.classList.add("gridElement")
+            div.setAttribute("style", "height: 48px; width: 48px; border: black solid 1px");
+            container.appendChild(div)
+        }
     }
+    gridElements = document.querySelectorAll(".gridElement");
+    hoverColor()
 }
 
-let gridElements = document.querySelectorAll(".gridElement");
+defautGrid()
 
 function clear () {
     gridElements.forEach(element => {
@@ -34,6 +39,8 @@ function newGrid () {
             container.appendChild(div)
         }
     }
+    gridElements = document.querySelectorAll(".gridElement");
+    hoverColor()
 }
 
 
@@ -44,6 +51,12 @@ function hoverColor () {
     })
 }
 
+function randomRgbColor() {
+    let r = randomInteger(255);
+    let g = randomInteger(255);
+    let b = randomInteger(255);
+    return 'rgb(${r},${g},${b})';
+}
 
 
 const clearBtn = document.querySelector("#clear");
@@ -52,4 +65,3 @@ clearBtn.addEventListener("click", clear)
 const enterBtn = document.querySelector("#enter");
 enterBtn.addEventListener("click", newGrid)
 
-hoverColor()
